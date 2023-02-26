@@ -1,0 +1,206 @@
+---
+title: "A Short Introduction to Quarto"
+subtitle: "How to Use Markdown Formatting, Add Static and Interactive Visualizations & Create Tables in Quarto Reports"
+author: "Cedric Scherer"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: show
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 1
+    dpi: 120
+execute:
+  warning: false
+  message: false
+  fig-width: 8
+  fig-height: 5
+editor: source
+---
+
+## Quarto {#quarto}
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Writing Markdown
+
+Markdown is a simple markup language, which means that we can format text with a few defined symbols.
+
+The two hash tags `##` above define a second-level header (`h2` in HTML[^1]), the back ticks used in the previous sentence format the text between those ticks as code.
+
+[^1]: The markdown syntax `## Writing Markdown` actually gets rendered to proper HTML code as `<h2>Writing Markdown</h2>`. Ah, and btw: this is how you add footnotes.
+
+### More Format Options
+
+Text wrapped into a set of asterisks or underscores is format as *italic* text, while wrapping it into a double-asterisk or -underscore produces **bold** text. Of course, **we can** *can* those and also ***combine both***.
+
+By adding consecutive lines starting with `*`, `+` or `-` we can create unordered lists, with numbers ordered lists.
+
+-  item A
+-  item B
+-  item C
+
+1. item 1
+1. item 2
+1. item 3
+
+In the [very first paragraph](#quarto) we use angle brackets, which renders the link inside `<` and `>` to a hyperlink. If you want to give the link another name, we can use a a combination of brackets and parentheses like this: [click me](https://cedricscherer.com/). We can also cross-reference sections inside our document as illustrated with the hyperlink to the Quarto paragraph.
+
+A similar logic applies if you want to include images, no matter if stored locally or on the web:
+
+![Illustration by Allison Horst](https://raw.githubusercontent.com/mine-cetinkaya-rundel/hello-quarto/main/images/horst-quarto-penguins.png){fig-alt="A drawing of two cute penguins, an orange one hugging the quarto logo and a blue one yay'ing."}
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code with the so-called "hash-pipe" `#|`. The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+You can also include valid code in the paragraphs like this `r mean(1:20)` and it will print the returned values in text form.
+
+### Visualizations
+
+Because you can run code chunks and display their output, you can also directly embed figures in your reports:
+
+```{r}
+#| label: my-ggplot
+#| echo: false
+library(ggplot2)
+
+g <- 
+  ggplot(mpg, aes(x = displ, y = hwy, color = cty)) + 
+  geom_point(size = 2) +
+  scale_color_viridis_c(option = "mako", direction = -1, end = .9) +
+  labs(x = "Displacement", y = "Highway gallons", color = "City gallons:") +
+  theme_minimal(base_size = 14) +
+  theme(panel.grid.minor = element_blank())
+
+g
+```
+
+... even interactive ones, for example with the help of the [**`{ggiraph}`**](https://davidgohel.github.io/ggiraph/index.html) R package:
+
+```{r}
+#| label: my-ggiraph
+#| echo: false
+gg <- g + 
+  ggiraph::geom_point_interactive(
+    aes(tooltip = manufacturer, data_id = manufacturer), 
+    size = 2
+  ) 
+
+ggiraph::girafe(ggobj = gg)
+```
+
+Or use [**`{plotly}`**](https://plotly.com/ggplot2/), a popular R package to render your ggplot with the [JavaScript library plotly](https://plotly.com/):
+
+```{r}
+#| label: my-ggplotly
+#| echo: false
+plotly::ggplotly(g)
+```
+
+
+### Tables
+
+You prefer tables? Here you go:
+
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
+
+: Demonstration of pipe table syntax
+
+Wait, you don't want to type all of your data into a pipe table?\
+You can also simply print your data frame which actually **is** a table, right?
+
+```{r}
+#| label: print-df
+#| echo: false
+mpg
+```
+<br>
+
+Hm, that doesn't look nice. Also, it would be great if it would show all rows and colums. A `paged_table` will create a simple interactive table that alows to navigate between rows and columns.
+
+```{r}
+#| label: rmarkdown
+#| echo: false
+rmarkdown::paged_table(mpg)
+```
+
+For shorter, nicely formatted tables, one can use `knitr::kable()`:
+
+```{r}
+#| label: kable
+#| echo: false
+
+## smaller dataset to print in the following tables
+library(dplyr)
+mpg2 <- mpg %>% select(c(1:2, 11, 5:6, 8, 3)) %>% slice_head(n = 1, by = manufacturer)
+knitr::kable(mpg2)
+```
+
+
+Or use the [**`{flextable}`**](https://ardata-fr.github.io/flextable-book/) package:
+
+```{r}
+#| label: flextable
+#| tbl-cap: A flextable example
+#| echo: false
+flextable::flextable(mpg2) %>% flextable::autofit()
+```
+
+<br>
+
+Another great option to create tables in R is the [**`{gt}`**](https://gt.rstudio.com/) R package:
+
+```{r}
+#| label: gt
+#| echo: false
+gt::gt(mpg2)
+```
+
+... and if you like in combination with its extension package [**`{gtExtras}`**](https://jthomasmock.github.io/gtExtras/) that provides also functionality to add in-table visualizations and more:
+
+```{r}
+#| label: gt-extras
+#| echo: false
+gt::gt(mpg2) %>% 
+  gtExtras::gt_color_rows(cty) %>%
+  gtExtras::gt_plt_bar_pct(displ, fill = "#303030") %>% 
+  gt::cols_width(model ~ px(120)) ## to avoid line breaks
+```
+
+## Final Note
+
+I add a tiny snippet that documents the current date and time along with information about the operating system, the R version and loaded packages to almost every report. As you can also add plain HTML code in Quarto documents, I use the `details` element to hide the session info in a collapsed toggle.
+
+<details>
+
+<summary>Session Info</summary>
+
+```{r}
+#| label: sessionInfo
+#| echo: false
+Sys.time()
+sessionInfo()
+# git2r::repository()  ## if you use git for version control
+```
+
+</details>
