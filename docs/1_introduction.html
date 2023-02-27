@@ -2822,6 +2822,20 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb395"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb395-1"><a href="#cb395-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
 </div>
 <p><br></p>
 </div>
@@ -2837,12 +2851,12 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Using Packages: Namespace</h2>
 <p>To avoid conflicts, one can explicitly refer to specific functions with namespaces:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-211_be1848c5f2f4e9cc0d3648f2f4dd5c39">
-<div class="sourceCode cell-code" id="cb396"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb396-1"><a href="#cb396-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
-<span id="cb396-2"><a href="#cb396-2"></a><span class="do">## provides functions to work with character strings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb399"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb399-1"><a href="#cb399-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span>
+<span id="cb399-2"><a href="#cb399-2"></a><span class="do">## provides functions to work with character strings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-212_5bb6b75262a0603195919303eeaf0795">
-<div class="sourceCode cell-code" id="cb397"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb397-1"><a href="#cb397-1"></a>stringr<span class="sc">::</span><span class="fu">str_to_sentence</span>(<span class="fu">c</span>(<span class="st">"coffee"</span>, <span class="st">"latte machiatto"</span>, <span class="st">"espresso"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb400"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb400-1"><a href="#cb400-1"></a>stringr<span class="sc">::</span><span class="fu">str_to_sentence</span>(<span class="fu">c</span>(<span class="st">"coffee"</span>, <span class="st">"latte machiatto"</span>, <span class="st">"espresso"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Coffee"          "Latte machiatto" "Espresso"       </code></pre>
 </div>
@@ -2869,7 +2883,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Data Frames</h2>
 <p>You can store several vectors, also of different data types, as tabular data in so-called <strong>data frames</strong>:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-213_6ae1d71a7127f6722d9c10ecdf9042b3">
-<div class="sourceCode cell-code" id="cb399"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb399-1"><a href="#cb399-1"></a>(df_participants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ids, names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb402"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb402-1"><a href="#cb402-1"></a>(df_participants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ids, names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ids    names
 1   1  Manisha
@@ -2882,7 +2896,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <div class="fragment">
 <p>Explicitly declaring column names:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-214_58a121dc946278012b7b6a4949fcf142">
-<div class="sourceCode cell-code" id="cb401"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb401-1"><a href="#cb401-1"></a>(df_participants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> ids, <span class="at">participant_name =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb404"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb404-1"><a href="#cb404-1"></a>(df_participants <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> ids, <span class="at">participant_name =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id participant_name
 1  1          Manisha
@@ -2898,7 +2912,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Accessing Data Frame Elements</h2>
 <h4 id="rows">Rows:</h4>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-215_a89f2e2389a917f97e56a71f020896c9">
-<div class="sourceCode cell-code" id="cb403"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb403-1"><a href="#cb403-1"></a>df_participants[<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb406"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb406-1"><a href="#cb406-1"></a>df_participants[<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id participant_name
 2  2           Julien</code></pre>
@@ -2906,14 +2920,14 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 <h4 id="columns">Columns:</h4>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-216_ea85a48a38009b63b4f34525d33497d5">
-<div class="sourceCode cell-code" id="cb405"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb405-1"><a href="#cb405-1"></a>df_participants[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb408"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb408-1"><a href="#cb408-1"></a>df_participants[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-217_31ffc28d9e1d093a872055b38378c4d4">
-<div class="sourceCode cell-code" id="cb407"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb407-1"><a href="#cb407-1"></a>df_participants<span class="sc">$</span>participant_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb410"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb410-1"><a href="#cb410-1"></a>df_participants<span class="sc">$</span>participant_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
@@ -2921,7 +2935,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-218_7b3e0a461eb1a5df63185af52adda93e">
-<div class="sourceCode cell-code" id="cb409"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb409-1"><a href="#cb409-1"></a>df_participants[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb412"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb412-1"><a href="#cb412-1"></a>df_participants[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
@@ -2932,14 +2946,14 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Accessing Data Frame Elements</h2>
 <h4 id="cells">Cells:</h4>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-219_9093f7ea2246043e9b94a95c1962bcbb">
-<div class="sourceCode cell-code" id="cb411"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb411-1"><a href="#cb411-1"></a>df_participants<span class="sc">$</span>participant_name[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb414"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb414-1"><a href="#cb414-1"></a>df_participants<span class="sc">$</span>participant_name[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Julien"</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-220_50e12ef9276b6d7ce51a60be8a554bb8">
-<div class="sourceCode cell-code" id="cb413"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb413-1"><a href="#cb413-1"></a>df_participants[[<span class="dv">2</span>]][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb416"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb416-1"><a href="#cb416-1"></a>df_participants[[<span class="dv">2</span>]][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Julien"</code></pre>
 </div>
@@ -2947,7 +2961,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-221_3cc9ee78841525cbed943bdef254901b">
-<div class="sourceCode cell-code" id="cb415"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb415-1"><a href="#cb415-1"></a>df_participants[,<span class="dv">2</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb418"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb418-1"><a href="#cb418-1"></a>df_participants[,<span class="dv">2</span>][<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Julien"</code></pre>
 </div>
@@ -2958,7 +2972,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Accesing Data Frame Elements</h2>
 <p>Data frames support partial matching…</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-222_ea27ff82d7fb34d02a363d066db8354b">
-<div class="sourceCode cell-code" id="cb417"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb417-1"><a href="#cb417-1"></a>df_participants</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb420"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb420-1"><a href="#cb420-1"></a>df_participants</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  id participant_name
 1  1          Manisha
@@ -2974,7 +2988,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <p><code>participant</code> is <strong>not</strong> a column of <code>df_participants</code> but matches by name with <code>participant_name</code>:</p>
 </div>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-223_c52997a2c9b2595370c5186c97e8b422">
-<div class="sourceCode cell-code" id="cb419"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb419-1"><a href="#cb419-1"></a>df_participants<span class="sc">$</span>participant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a>df_participants<span class="sc">$</span>participant</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
@@ -2987,14 +3001,14 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <p>Tibbles are a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not.</p>
 </blockquote>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-224_ecb8c2c4c6e93c2fa37c60099333e825">
-<div class="sourceCode cell-code" id="cb421"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb421-1"><a href="#cb421-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb424"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb424-1"><a href="#cb424-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>The name comes from the way you originally created these objects:<br><code>tbl_df()</code>, which was most easily pronounced as <em>“tibble diff”</em> or <em>“tibble d.&nbsp;f.”</em>.</p>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-225_1f68bdf43d7352f6823681010a56c911">
-<div class="sourceCode cell-code" id="cb422"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1"></a>(tbl_participants <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> ids, <span class="at">participant_name =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb425"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb425-1"><a href="#cb425-1"></a>(tbl_participants <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> ids, <span class="at">participant_name =</span> names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
      id participant_name
@@ -3034,14 +3048,14 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <h2>Data Frame vs Tibble</h2>
 <p>Tibbles have a refined print method.</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-226_b3ecb48a71abd7747d5310230c479564">
-<div class="sourceCode cell-code" id="cb424"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb424-1"><a href="#cb424-1"></a>df_long  <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span>
-<span id="cb424-2"><a href="#cb424-2"></a>tbl_long <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb427"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb427-1"><a href="#cb427-1"></a>df_long  <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span>
+<span id="cb427-2"><a href="#cb427-2"></a>tbl_long <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span> <span class="sc">%%</span> <span class="dv">10</span>, <span class="at">value =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-228_c1fdc537156dbab2e205107bb2cba808" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb425"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb425-1"><a href="#cb425-1"></a>df_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb428"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb428-1"><a href="#cb428-1"></a>df_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     id       value
 1     1 466.6139435
@@ -4047,7 +4061,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 </div>
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-229_5f5ddb44abf781cd6163b9f4d86244de" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb427"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb427-1"><a href="#cb427-1"></a>tbl_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb430"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb430-1"><a href="#cb430-1"></a>tbl_long</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,000 × 2
       id value
@@ -4075,7 +4089,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-230_ee124de8bb05b55e8b20d0f75fd8c7b3" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb429"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb429-1"><a href="#cb429-1"></a><span class="fu">as.data.frame</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb432"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb432-1"><a href="#cb432-1"></a><span class="fu">as.data.frame</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      species    island bill_length_mm bill_depth_mm
 1      Adelie Torgersen           39.1          18.7
@@ -4770,7 +4784,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 </div>
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-231_0484a88704819d5fb2edd3e3296c3092" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb431"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb431-1"><a href="#cb431-1"></a>tibble<span class="sc">::</span><span class="fu">as_tibble</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb434"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb434-1"><a href="#cb434-1"></a>tibble<span class="sc">::</span><span class="fu">as_tibble</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
    species island bill_…¹ bill_…² flipp…³ body_…⁴ sex  
@@ -4815,7 +4829,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-232_8f93456723ff9eb2aabbbf425225f90d" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb433"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb433-1"><a href="#cb433-1"></a>df_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb436"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb436-1"><a href="#cb436-1"></a>df_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   [1] 466.6139435 335.1909537 162.8175615 396.1200174
    [5]  30.3917308 120.8848702 426.1656571 617.8578807
@@ -5070,7 +5084,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 </div>
 <div class="cell quarto-layout-cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-233_2466ff664e5f0e4d719c6a0a9f65a6dc" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb435"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb435-1"><a href="#cb435-1"></a>tbl_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb438"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb438-1"><a href="#cb438-1"></a>tbl_long<span class="sc">$</span>val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
@@ -5081,20 +5095,20 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 <section id="inspect-a-data-set" class="slide level2">
 <h2>Inspect a Data Set</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-235_f172201e416895e1c0a13bb550722df0">
-<div class="sourceCode cell-code" id="cb437"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb437-1"><a href="#cb437-1"></a><span class="fu">View</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb440"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb440-1"><a href="#cb440-1"></a><span class="fu">View</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="inspect-a-data-set-1" class="slide level2">
 <h2>Inspect a Data Set</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-236_69f31ddd53e4f67981489782f77df8f0">
-<div class="sourceCode cell-code" id="cb438"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb438-1"><a href="#cb438-1"></a><span class="fu">dim</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb441"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb441-1"><a href="#cb441-1"></a><span class="fu">dim</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1000    2</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-237_68926c2f1eebe0ede4453ad2e76b71ed">
-<div class="sourceCode cell-code" id="cb440"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb440-1"><a href="#cb440-1"></a><span class="fu">str</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb443"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb443-1"><a href="#cb443-1"></a><span class="fu">str</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [1,000 × 2] (S3: tbl_df/tbl/data.frame)
  $ id   : num [1:1000] 1 2 3 4 5 6 7 8 9 0 ...
@@ -5104,7 +5118,7 @@ Levels: 1 2 3 4 5 6 7 8 9 10 0</code></pre>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-238_abb5fd062e991a5a379538e6532fd405">
-<div class="sourceCode cell-code" id="cb442"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb442-1"><a href="#cb442-1"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb445"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb445-1"><a href="#cb445-1"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,000
 Columns: 2
@@ -5115,7 +5129,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-239_22cb285f808ff4772a89aa22fb662439">
-<div class="sourceCode cell-code" id="cb444"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb444-1"><a href="#cb444-1"></a><span class="fu">summary</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb447"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb447-1"><a href="#cb447-1"></a><span class="fu">summary</span>(tbl_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       id          value        
  Min.   :0.0   Min.   :  1.341  
@@ -5131,14 +5145,14 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 <section id="inspect-a-data-set-2" class="slide level2">
 <h2>Inspect a Data Set</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-240_68453ef6fc038cbfd310ba204371fb93">
-<div class="sourceCode cell-code" id="cb446"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb446-1"><a href="#cb446-1"></a><span class="fu">mean</span>(tbl_long<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb449"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb449-1"><a href="#cb449-1"></a><span class="fu">mean</span>(tbl_long<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 482.4375</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-241_8a6f7301228e16a574cedf45d77e73aa">
-<div class="sourceCode cell-code" id="cb448"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb448-1"><a href="#cb448-1"></a><span class="fu">range</span>(tbl_long<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb451"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb451-1"><a href="#cb451-1"></a><span class="fu">range</span>(tbl_long<span class="sc">$</span>value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   1.34083 999.16861</code></pre>
 </div>
@@ -5146,7 +5160,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-242_cbcb8ced5c0fdf123b5005bda568198b">
-<div class="sourceCode cell-code" id="cb450"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb450-1"><a href="#cb450-1"></a><span class="fu">unique</span>(tbl_long<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb453"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb453-1"><a href="#cb453-1"></a><span class="fu">unique</span>(tbl_long<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 1 2 3 4 5 6 7 8 9 0</code></pre>
 </div>
@@ -5154,7 +5168,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-243_e1b1500b38f4af9fa9f5b8447a7d948b">
-<div class="sourceCode cell-code" id="cb452"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb452-1"><a href="#cb452-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb455"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb455-1"><a href="#cb455-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0 1 2 3 4 5 6 7 8 9</code></pre>
 </div>
@@ -5162,7 +5176,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-244_bf51976b0cf3d4ebe9d8889296602619">
-<div class="sourceCode cell-code" id="cb454"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb454-1"><a href="#cb454-1"></a><span class="fu">length</span>(tbl_long<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb457"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb457-1"><a href="#cb457-1"></a><span class="fu">length</span>(tbl_long<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1000</code></pre>
 </div>
@@ -5170,7 +5184,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-245_7d72721ade9fe28ecf6afcc9a3a4ea54">
-<div class="sourceCode cell-code" id="cb456"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb456-1"><a href="#cb456-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb459"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb459-1"><a href="#cb459-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(tbl_long<span class="sc">$</span>id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
@@ -5199,14 +5213,14 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 <section id="your-turn-working-with-tabular-data-1" class="slide level2">
 <h2>Your Turn: Working with Tabular Data</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-246_7fc49413e0692e21391fc286135fcae9">
-<div class="sourceCode cell-code" id="cb458"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb458-1"><a href="#cb458-1"></a><span class="fu">dim</span>(penguins) <span class="do">## or: `nrow(penguins)`, `length(penguins$species)`, ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb461"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb461-1"><a href="#cb461-1"></a><span class="fu">dim</span>(penguins) <span class="do">## or: `nrow(penguins)`, `length(penguins$species)`, ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 344   8</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-247_e35df2acd59d701874d061e2193af06a">
-<div class="sourceCode cell-code" id="cb460"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb460-1"><a href="#cb460-1"></a><span class="fu">summary</span>(penguins<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb463"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb463-1"><a href="#cb463-1"></a><span class="fu">summary</span>(penguins<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>female   male   NA's 
    165    168     11 </code></pre>
@@ -5215,7 +5229,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-248_8d99cf75aaa43f45fdefa0dbcf8f6aa6">
-<div class="sourceCode cell-code" id="cb462"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb462-1"><a href="#cb462-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb465"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb465-1"><a href="#cb465-1"></a><span class="fu">unique</span>(penguins<span class="sc">$</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2007 2008 2009</code></pre>
 </div>
@@ -5223,7 +5237,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-249_aa3bc9c104c7d233000c201a358bf1f9">
-<div class="sourceCode cell-code" id="cb464"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb464-1"><a href="#cb464-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb467"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb467-1"><a href="#cb467-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
@@ -5231,7 +5245,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-250_2b5d8be5dfe1e99e69d42b2076f6c22f">
-<div class="sourceCode cell-code" id="cb466"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb466-1"><a href="#cb466-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb469"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb469-1"><a href="#cb469-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 43.92193</code></pre>
 </div>
@@ -5239,7 +5253,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-251_758fe8cafb934c73cca0624a572b0fb9">
-<div class="sourceCode cell-code" id="cb468"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb468-1"><a href="#cb468-1"></a><span class="fu">quantile</span>(penguins<span class="sc">$</span>flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb471"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb471-1"><a href="#cb471-1"></a><span class="fu">quantile</span>(penguins<span class="sc">$</span>flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  0%  25%  50%  75% 100% 
  172  190  197  213  231 </code></pre>
@@ -5248,7 +5262,7 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-252_2a6d78c91babfea5dad78e6a29cda2e5">
-<div class="sourceCode cell-code" id="cb470"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb470-1"><a href="#cb470-1"></a>penguin_weights <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb473"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb473-1"><a href="#cb473-1"></a>penguin_weights <span class="ot">&lt;-</span> penguins<span class="sc">$</span>body_mass_g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5256,11 +5270,11 @@ $ value &lt;dbl&gt; 880.849571, 690.568330, 786.657729, 78.981368, 206.086510, 9
 <h2>Lists</h2>
 <p>Lists are by far the most flexible data structure in R. They can be seen as a collection of elements without any restriction on the class, length or structure of each element.</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-253_bd464ed243a52513ebb7892a378af3d2">
-<div class="sourceCode cell-code" id="cb471"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb471-1"><a href="#cb471-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Manisha"</span>, <span class="st">"Julien"</span>, <span class="st">"Cornelia"</span>, <span class="st">"Tatyana"</span>, <span class="st">"Eman"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb474"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb474-1"><a href="#cb474-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">ids =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"Manisha"</span>, <span class="st">"Julien"</span>, <span class="st">"Cornelia"</span>, <span class="st">"Tatyana"</span>, <span class="st">"Eman"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-254_9cf1d091acc6237062a5a4c2d7438aa3">
-<div class="sourceCode cell-code" id="cb472"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb472-1"><a href="#cb472-1"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb475"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb475-1"><a href="#cb475-1"></a>my_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$ids
 [1] 1 2 3 4 5
@@ -5279,14 +5293,14 @@ $names
 <section id="accessing-list-elements" class="slide level2">
 <h2>Accessing List Elements</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-255_6d3e0fd71c24051422292ff8e2f9297d">
-<div class="sourceCode cell-code" id="cb474"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb474-1"><a href="#cb474-1"></a>my_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb477"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb477-1"><a href="#cb477-1"></a>my_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-256_4aae783fd9ac55cecc5bb2433e12ad14">
-<div class="sourceCode cell-code" id="cb476"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb476-1"><a href="#cb476-1"></a>my_list<span class="sc">$</span>names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb479"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb479-1"><a href="#cb479-1"></a>my_list<span class="sc">$</span>names[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"</code></pre>
 </div>
@@ -5295,7 +5309,7 @@ $names
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-257_7cbdd081cb69c925afd09111a59e9291">
-<div class="sourceCode cell-code" id="cb478"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb478-1"><a href="#cb478-1"></a>my_list[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb481"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb481-1"><a href="#cb481-1"></a>my_list[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
@@ -5303,7 +5317,7 @@ $names
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-258_9095ee37b4b215cebcec4bba857b3df5">
-<div class="sourceCode cell-code" id="cb480"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb480-1"><a href="#cb480-1"></a>my_list[[<span class="dv">2</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb483"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb483-1"><a href="#cb483-1"></a>my_list[[<span class="dv">2</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"</code></pre>
 </div>
@@ -5314,15 +5328,15 @@ $names
 <h2>Nested Lists</h2>
 <p>Usually, when we talk about lists we often mean nested data structure:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-259_56aea03a7da21d914f7396c41e66c2aa">
-<div class="sourceCode cell-code" id="cb482"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb482-1"><a href="#cb482-1"></a>my_nested_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb482-2"><a href="#cb482-2"></a>  <span class="at">ids =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span>), </span>
-<span id="cb482-3"><a href="#cb482-3"></a>  <span class="at">names =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Manisha"</span>, <span class="st">"Julien"</span>, <span class="st">"Cornelia"</span>, <span class="st">"Tatyana"</span>, <span class="st">"Eman"</span>), <span class="st">"Cedric"</span>),</span>
-<span id="cb482-4"><a href="#cb482-4"></a>  <span class="at">type =</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="st">"participant"</span>, <span class="dv">5</span>), <span class="st">"instructor"</span>)</span>
-<span id="cb482-5"><a href="#cb482-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb485"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb485-1"><a href="#cb485-1"></a>my_nested_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb485-2"><a href="#cb485-2"></a>  <span class="at">ids =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span>), </span>
+<span id="cb485-3"><a href="#cb485-3"></a>  <span class="at">names =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">"Manisha"</span>, <span class="st">"Julien"</span>, <span class="st">"Cornelia"</span>, <span class="st">"Tatyana"</span>, <span class="st">"Eman"</span>), <span class="st">"Cedric"</span>),</span>
+<span id="cb485-4"><a href="#cb485-4"></a>  <span class="at">type =</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="st">"participant"</span>, <span class="dv">5</span>), <span class="st">"instructor"</span>)</span>
+<span id="cb485-5"><a href="#cb485-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-260_48a2d2efa1a7c61b85a733cb8c176620">
-<div class="sourceCode cell-code" id="cb483"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb483-1"><a href="#cb483-1"></a>my_nested_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb486"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb486-1"><a href="#cb486-1"></a>my_nested_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$ids
 $ids[[1]]
@@ -5353,7 +5367,7 @@ $type[[2]]
 <section id="nested-lists-1" class="slide level2">
 <h2>Nested Lists</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-261_2f07f9a46d2c60caf7682c08ef41314c">
-<div class="sourceCode cell-code" id="cb485"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb485-1"><a href="#cb485-1"></a>my_nested_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb488"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb488-1"><a href="#cb488-1"></a>my_nested_list<span class="sc">$</span>names</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    
@@ -5364,7 +5378,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-262_bc1773fd7e76566baf50175660caee9a">
-<div class="sourceCode cell-code" id="cb487"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb487-1"><a href="#cb487-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb490"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb490-1"><a href="#cb490-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"  "Julien"   "Cornelia" "Tatyana"  "Eman"    </code></pre>
 </div>
@@ -5372,7 +5386,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-263_c2ff1f5e140db57b6fea16dff28050f1">
-<div class="sourceCode cell-code" id="cb489"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb489-1"><a href="#cb489-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb492"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb492-1"><a href="#cb492-1"></a>my_nested_list<span class="sc">$</span>names[[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"</code></pre>
 </div>
@@ -5381,7 +5395,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-264_1acb3343e629c9597827d9e8384e9a17">
-<div class="sourceCode cell-code" id="cb491"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb491-1"><a href="#cb491-1"></a>my_nested_list[[<span class="dv">2</span>]][[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb494"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb494-1"><a href="#cb494-1"></a>my_nested_list[[<span class="dv">2</span>]][[<span class="dv">1</span>]][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Manisha"</code></pre>
 </div>
@@ -5391,11 +5405,11 @@ $type[[2]]
 <section id="nested-lists-as-tibbles" class="slide level2">
 <h2>Nested Lists as Tibbles</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-265_f1fb8ff88b26bd2f9a01908f62f5cb2c">
-<div class="sourceCode cell-code" id="cb493"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb493-1"><a href="#cb493-1"></a>my_tbl_list <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(my_nested_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb496"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb496-1"><a href="#cb496-1"></a>my_tbl_list <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(my_nested_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-266_55f88ffa25ec5888d7d39f4627bcb390">
-<div class="sourceCode cell-code" id="cb494"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb494-1"><a href="#cb494-1"></a>my_tbl_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb497"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb497-1"><a href="#cb497-1"></a>my_tbl_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   ids       names     type     
@@ -5409,11 +5423,11 @@ $type[[2]]
 <section id="unnesting-nested-lists" class="slide level2">
 <h2>Unnesting Nested Lists</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-267_89b71ffb5021fadfda4fd0d382d88061">
-<div class="sourceCode cell-code" id="cb496"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb496-1"><a href="#cb496-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb499"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb499-1"><a href="#cb499-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-268_06679e92c86f63a249605d72c071bc6c">
-<div class="sourceCode cell-code" id="cb497"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb497-1"><a href="#cb497-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb500"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb500-1"><a href="#cb500-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: `cols` is now required when using `unnest()`.
 ℹ Please use `cols = c(ids, names, type)`.</code></pre>
@@ -5422,12 +5436,12 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-269_7c56d60b0bf7fc0bb8445dbf071197da">
-<div class="sourceCode cell-code" id="cb499"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb499-1"><a href="#cb499-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list, <span class="at">cols =</span> <span class="fu">c</span>(ids, names, type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb502"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb502-1"><a href="#cb502-1"></a>my_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">unnest</span>(my_tbl_list, <span class="at">cols =</span> <span class="fu">c</span>(ids, names, type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-270_64d491b324d297abbe71709860ab7c7e">
-<div class="sourceCode cell-code" id="cb500"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb500-1"><a href="#cb500-1"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb503"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb503-1"><a href="#cb503-1"></a>my_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
     ids names    type       
@@ -5445,11 +5459,11 @@ $type[[2]]
 <section id="nesting-lists" class="slide level2">
 <h2>Nesting Lists</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-271_f93ab27c3ef627a7471732561920d4c9">
-<div class="sourceCode cell-code" id="cb502"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb502-1"><a href="#cb502-1"></a>my_nested_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">nest</span>(my_tbl, <span class="at">data =</span> <span class="sc">!</span>type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb505"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb505-1"><a href="#cb505-1"></a>my_nested_tbl <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">nest</span>(my_tbl, <span class="at">data =</span> <span class="sc">!</span>type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-272_7c8f11d987ffe34da853e7a6626d5fa1">
-<div class="sourceCode cell-code" id="cb503"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb503-1"><a href="#cb503-1"></a>my_nested_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb506"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb506-1"><a href="#cb506-1"></a>my_nested_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   type        data            
@@ -5461,7 +5475,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-273_43f3b0bde3c56bbf5c1a605fea8b9cd0">
-<div class="sourceCode cell-code" id="cb505"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb505-1"><a href="#cb505-1"></a>my_nested_tbl<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb508"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb508-1"><a href="#cb508-1"></a>my_nested_tbl<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 # A tibble: 5 × 2
@@ -5491,14 +5505,14 @@ $type[[2]]
 <h2>Generate <strike>Data Sets</strike>Vectors in R</h2>
 <p>You can combine vectors to a data frame or tibble. Helpful functions to create vectors are <code>:</code>, <code>seq()</code>, and <code>rep()</code>:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-274_b6a472d5ecf089b6c9c04733f5f453ab">
-<div class="sourceCode cell-code" id="cb507"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb507-1"><a href="#cb507-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb510"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb510-1"><a href="#cb510-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-275_d1c51f84dba3f0255e2790ebfda0c889">
-<div class="sourceCode cell-code" id="cb509"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb509-1"><a href="#cb509-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb512"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb512-1"><a href="#cb512-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0  25  50  75 100 125 150</code></pre>
 </div>
@@ -5506,7 +5520,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-276_bd9e2f5e1635c3a37cabc222ddf62e57">
-<div class="sourceCode cell-code" id="cb511"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb511-1"><a href="#cb511-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span><span class="sc">*</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb514"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb514-1"><a href="#cb514-1"></a><span class="dv">0</span><span class="sc">:</span><span class="dv">6</span><span class="sc">*</span><span class="dv">25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0  25  50  75 100 125 150</code></pre>
 </div>
@@ -5514,7 +5528,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-277_630c1eb5af85dd7e10f9d85c8b2fbb1b">
-<div class="sourceCode cell-code" id="cb513"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb513-1"><a href="#cb513-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb516"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb516-1"><a href="#cb516-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">150</span>, <span class="at">length.out =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   0.0  37.5  75.0 112.5 150.0</code></pre>
 </div>
@@ -5522,7 +5536,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-278_8d363cecf2ac33b1519aee9cbf4c6365">
-<div class="sourceCode cell-code" id="cb515"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb515-1"><a href="#cb515-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb518"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb518-1"><a href="#cb518-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 1 2 3 1 2 3</code></pre>
 </div>
@@ -5530,7 +5544,7 @@ $type[[2]]
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-279_e633f65f27ec93b9438f22a57185f032">
-<div class="sourceCode cell-code" id="cb517"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb517-1"><a href="#cb517-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb520"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb520-1"><a href="#cb520-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 1 2 2 2 3 3 3</code></pre>
 </div>
@@ -5541,14 +5555,14 @@ $type[[2]]
 <h2>Generate Data Sets in R</h2>
 <p>You can combine vectors to a data frame or tibble. Helpful functions to create vectors are <code>:</code>, <code>seq()</code>, and <code>rep()</code>:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-280_ab32fc11cf27fd05adbc9719cecc39c4">
-<div class="sourceCode cell-code" id="cb519"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb519-1"><a href="#cb519-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Brian"</span>, <span class="st">"Jason"</span>, <span class="st">"Tyler"</span>, <span class="st">"Sam"</span>)</span>
-<span id="cb519-2"><a href="#cb519-2"></a>age <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">29</span>, <span class="at">by =</span> <span class="dv">2</span>)  <span class="do">## or `c(23, 25, 27, 29)`</span></span>
-<span id="cb519-3"><a href="#cb519-3"></a>sex <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="fu">length</span>(name))  <span class="do">## or `c("male", "male", "male", "male")`</span></span>
-<span id="cb519-4"><a href="#cb519-4"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)  <span class="do">## or `c(1, 2, 3, 4)` or `1:4`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb522"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb522-1"><a href="#cb522-1"></a>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Brian"</span>, <span class="st">"Jason"</span>, <span class="st">"Tyler"</span>, <span class="st">"Sam"</span>)</span>
+<span id="cb522-2"><a href="#cb522-2"></a>age <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">29</span>, <span class="at">by =</span> <span class="dv">2</span>)  <span class="do">## or `c(23, 25, 27, 29)`</span></span>
+<span id="cb522-3"><a href="#cb522-3"></a>sex <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="fu">length</span>(name))  <span class="do">## or `c("male", "male", "male", "male")`</span></span>
+<span id="cb522-4"><a href="#cb522-4"></a>id <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(name)  <span class="do">## or `c(1, 2, 3, 4)` or `1:4`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-281_d0fa1f08c4a1a70ed94a800add9adced">
-<div class="sourceCode cell-code" id="cb520"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb520-1"><a href="#cb520-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(id, name, age, sex) <span class="do">## or `data.frame()`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb523"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb523-1"><a href="#cb523-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(id, name, age, sex) <span class="do">## or `data.frame()`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
      id name    age sex  
@@ -5565,12 +5579,12 @@ $type[[2]]
 <h2>Generate Data Sets in R</h2>
 <p>From scratch, you would create these columns within the <code>data.frame()</code> or <code>tibble()</code> call:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-282_c8e551b93256a11b46eb2f3e2f6bd9ba">
-<div class="sourceCode cell-code" id="cb522"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb522-1"><a href="#cb522-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb522-2"><a href="#cb522-2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Brian"</span>, <span class="st">"Jason"</span>, <span class="st">"Tyler"</span>, <span class="st">"Sam"</span>),</span>
-<span id="cb522-3"><a href="#cb522-3"></a>  <span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">29</span>, <span class="at">by =</span> <span class="dv">2</span>),  </span>
-<span id="cb522-4"><a href="#cb522-4"></a>  <span class="at">sex =</span> <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="dv">4</span>),</span>
-<span id="cb522-5"><a href="#cb522-5"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb522-6"><a href="#cb522-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb525"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb525-1"><a href="#cb525-1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb525-2"><a href="#cb525-2"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Brian"</span>, <span class="st">"Jason"</span>, <span class="st">"Tyler"</span>, <span class="st">"Sam"</span>),</span>
+<span id="cb525-3"><a href="#cb525-3"></a>  <span class="at">age =</span> <span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">29</span>, <span class="at">by =</span> <span class="dv">2</span>),  </span>
+<span id="cb525-4"><a href="#cb525-4"></a>  <span class="at">sex =</span> <span class="fu">rep</span>(<span class="st">"male"</span>, <span class="dv">4</span>),</span>
+<span id="cb525-5"><a href="#cb525-5"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb525-6"><a href="#cb525-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
   name    age sex      id
@@ -5586,13 +5600,13 @@ $type[[2]]
 <h2>Generate Data Sets in R</h2>
 <p>You can also create tibbles using an easier to read row-by-row layout—a <code>tribble</code>:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-283_e5cea9d1fecc51465955d68f6b75f28b">
-<div class="sourceCode cell-code" id="cb524"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb524-1"><a href="#cb524-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
-<span id="cb524-2"><a href="#cb524-2"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,    <span class="sc">~</span>age,  <span class="sc">~</span>sex,</span>
-<span id="cb524-3"><a href="#cb524-3"></a>  <span class="dv">1</span>,   <span class="st">"Brian"</span>,  <span class="dv">23</span>,    <span class="st">"male"</span>, </span>
-<span id="cb524-4"><a href="#cb524-4"></a>  <span class="dv">2</span>,   <span class="st">"Jason"</span>,  <span class="dv">25</span>,    <span class="st">"male"</span>, </span>
-<span id="cb524-5"><a href="#cb524-5"></a>  <span class="dv">3</span>,   <span class="st">"Tyler"</span>,  <span class="dv">27</span>,    <span class="st">"male"</span>, </span>
-<span id="cb524-6"><a href="#cb524-6"></a>  <span class="dv">4</span>,   <span class="st">"Sam"</span>,    <span class="dv">29</span>,    <span class="st">"male"</span></span>
-<span id="cb524-7"><a href="#cb524-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb527"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb527-1"><a href="#cb527-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb527-2"><a href="#cb527-2"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,    <span class="sc">~</span>age,  <span class="sc">~</span>sex,</span>
+<span id="cb527-3"><a href="#cb527-3"></a>  <span class="dv">1</span>,   <span class="st">"Brian"</span>,  <span class="dv">23</span>,    <span class="st">"male"</span>, </span>
+<span id="cb527-4"><a href="#cb527-4"></a>  <span class="dv">2</span>,   <span class="st">"Jason"</span>,  <span class="dv">25</span>,    <span class="st">"male"</span>, </span>
+<span id="cb527-5"><a href="#cb527-5"></a>  <span class="dv">3</span>,   <span class="st">"Tyler"</span>,  <span class="dv">27</span>,    <span class="st">"male"</span>, </span>
+<span id="cb527-6"><a href="#cb527-6"></a>  <span class="dv">4</span>,   <span class="st">"Sam"</span>,    <span class="dv">29</span>,    <span class="st">"male"</span></span>
+<span id="cb527-7"><a href="#cb527-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 4
      id name    age sex  
@@ -5623,11 +5637,11 @@ $type[[2]]
 <h2>Data Import</h2>
 <p>Usually, you create data frames by loading data files such as <code>.txt</code>, <code>.csv</code>, …</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-284_b8aac8e083d0964009f57fdd32e27ef1">
-<div class="sourceCode cell-code" id="cb526"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb526-1"><a href="#cb526-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb529"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb529-1"><a href="#cb529-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-285_a4a94c1a2f751c0508a5bd2afd0c92ea">
-<div class="sourceCode cell-code" id="cb527"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb527-1"><a href="#cb527-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb530"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb530-1"><a href="#cb530-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -5640,7 +5654,7 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <div class="fragment">
 <p>You can also import data from a web resource by passing a valid URL:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-286_2320b0301edecc6b3dcb95b8036fa8bc">
-<div class="sourceCode cell-code" id="cb528"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb528-1"><a href="#cb528-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://some-webpage.com/online-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb531"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb531-1"><a href="#cb531-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://some-webpage.com/online-data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5648,16 +5662,16 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <h2>Data Import: Tibbles</h2>
 <p>The <strong>{readr}</strong> package provides a fast and friendly way to read rectangular data which are stored as tibbles:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-287_06f01e297ad4543671c381242d1b8c5c">
-<div class="sourceCode cell-code" id="cb529"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb529-1"><a href="#cb529-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb532"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb532-1"><a href="#cb532-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_delim</span>(<span class="st">"./data/cool_data.txt"</span>, <span class="at">delim =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-288_1a2ac1055a6fad64ff52c578817e4b4a">
-<div class="sourceCode cell-code" id="cb530"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb530-1"><a href="#cb530-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb533"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb533-1"><a href="#cb533-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-289_ef3084caeebd322ad0f356cb1a7b18e4">
-<div class="sourceCode cell-code" id="cb531"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb531-1"><a href="#cb531-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv2</span>(<span class="st">"./data/actually_not_a_csv_but_okay.csv"</span>) <span class="do">## ';' as sep</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb534"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb534-1"><a href="#cb534-1"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv2</span>(<span class="st">"./data/actually_not_a_csv_but_okay.csv"</span>) <span class="do">## ';' as sep</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5665,11 +5679,11 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <h2>Data Import: Excel Files (sigh)</h2>
 <p>The <strong>{readxl}</strong> package provides functionality to import Excel sheets:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-290_dc56c8a410d1e90ea4a961f21b2c05cb">
-<div class="sourceCode cell-code" id="cb532"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb532-1"><a href="#cb532-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./data/oh_no_excel_data.xls"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb535"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb535-1"><a href="#cb535-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"./data/oh_no_excel_data.xls"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-291_4ceda8f5087adc84b0c494219a7a6af7">
-<div class="sourceCode cell-code" id="cb533"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb533-1"><a href="#cb533-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"./data/oh_no_excel_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb536"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb536-1"><a href="#cb536-1"></a>my_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"./data/oh_no_excel_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5677,13 +5691,13 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <h2>Data Import: R-Specific Formats</h2>
 <p>There are also R-specific formats such as <code>.Rds</code> and <code>.Rdata</code>/<code>.Rda</code></p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-292_1ad1346f83db1618e455c36e3dbae9ae">
-<div class="sourceCode cell-code" id="cb534"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb534-1"><a href="#cb534-1"></a><span class="do">## base R:</span></span>
-<span id="cb534-2"><a href="#cb534-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb537"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb537-1"><a href="#cb537-1"></a><span class="do">## base R:</span></span>
+<span id="cb537-2"><a href="#cb537-2"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-293_abfec3d33e4ff579b4d6238d1832eaa8">
-<div class="sourceCode cell-code" id="cb535"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb535-1"><a href="#cb535-1"></a><span class="do">## readr package:</span></span>
-<span id="cb535-2"><a href="#cb535-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb538"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb538-1"><a href="#cb538-1"></a><span class="do">## readr package:</span></span>
+<span id="cb538-2"><a href="#cb538-2"></a>my_data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_rds</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5691,7 +5705,7 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <h2>Data Import: Too Slow?</h2>
 <p>The <strong>{data.table}</strong> package provides functionality for data I/O, wrangling and more. The function to import and export data are known to be very fast:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-294_65aedf55c745d8a759c069f7b42948ea">
-<div class="sourceCode cell-code" id="cb536"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb536-1"><a href="#cb536-1"></a>my_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb539"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb539-1"><a href="#cb539-1"></a>my_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-import-the-io-swiss-army-knife" class="slide level2">
@@ -5699,31 +5713,31 @@ You can check your “wd” by running <code>getwd()</code>.</p>
 <p>The <strong>{rio}</strong> package aims to unify data importing and exporting into two functions.<br>
 Based on the file format, <strong>{rio}</strong> will pick a suitable import/export function.</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-295_06b51d21cbff9160443a6c8ff00f7db9">
-<div class="sourceCode cell-code" id="cb537"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb537-1"><a href="#cb537-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/cool_data.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb540"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb540-1"><a href="#cb540-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/cool_data.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-296_c02ca924f926ed2994124f5d2a98c19d">
-<div class="sourceCode cell-code" id="cb538"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb538-1"><a href="#cb538-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-296_7970d85ba3e7bd9c2ed9b16c3a037eff">
+<div class="sourceCode cell-code" id="cb541"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb541-1"><a href="#cb541-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-297_9e350a2e0396911299f16370d7c8af9d">
-<div class="sourceCode cell-code" id="cb539"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb539-1"><a href="#cb539-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb542"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb542-1"><a href="#cb542-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-298_ec0c421ec2b08723e058d1aa79c0eb0f">
-<div class="sourceCode cell-code" id="cb540"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb540-1"><a href="#cb540-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb543"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb543-1"><a href="#cb543-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-299_5eb8ed05950e610a25321dfde534348c">
-<div class="sourceCode cell-code" id="cb541"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb541-1"><a href="#cb541-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb544"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb544-1"><a href="#cb544-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-300_184d36934b410f50285211af4ea22290">
-<div class="sourceCode cell-code" id="cb542"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb542-1"><a href="#cb542-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb545"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb545-1"><a href="#cb545-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-301_b476610a6eafd2957e79750b49329ed9">
-<div class="sourceCode cell-code" id="cb543"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb543-1"><a href="#cb543-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb546"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb546-1"><a href="#cb546-1"></a>my_data <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5731,38 +5745,38 @@ Based on the file format, <strong>{rio}</strong> will pick a suitable import/exp
 <h2>Data Export</h2>
 <p>In general, the same logic applies when exporting data sets:</p>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-302_2b90d65908ff0d98861ea1d32008504c">
-<div class="sourceCode cell-code" id="cb544"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb544-1"><a href="#cb544-1"></a><span class="fu">write</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb547"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb547-1"><a href="#cb547-1"></a><span class="fu">write</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.txt"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-303_0955f61171f5d7d89963ae65599c746e">
-<div class="sourceCode cell-code" id="cb545"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb545-1"><a href="#cb545-1"></a><span class="fu">write.csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb548"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb548-1"><a href="#cb548-1"></a><span class="fu">write.csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-304_8b9148f3b51f2f8c30d870e1d3a941c5">
-<div class="sourceCode cell-code" id="cb546"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb546-1"><a href="#cb546-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb549"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb549-1"><a href="#cb549-1"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-305_081e4af205452292afa1aa1cf2357bd8">
-<div class="sourceCode cell-code" id="cb547"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb547-1"><a href="#cb547-1"></a>data.table<span class="sc">::</span><span class="fu">fwrite</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb550"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb550-1"><a href="#cb550-1"></a>data.table<span class="sc">::</span><span class="fu">fwrite</span>(my_data, <span class="at">file =</span> <span class="st">"./data/cool_data.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-306_c6a552be41b5b962f70ace3ddf599875">
-<div class="sourceCode cell-code" id="cb548"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb548-1"><a href="#cb548-1"></a><span class="fu">saveRDS</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb551"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb551-1"><a href="#cb551-1"></a><span class="fu">saveRDS</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-307_8aedc14c1579d931ca70929e504e11d9">
-<div class="sourceCode cell-code" id="cb549"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb549-1"><a href="#cb549-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb552"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb552-1"><a href="#cb552-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(my_data, <span class="at">file =</span> <span class="st">"./data/one_of_Rs_data_formats.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-308_df8f67ad2c56d7b7dd1b5d4af686c5e2">
-<div class="sourceCode cell-code" id="cb550"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb550-1"><a href="#cb550-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(my_data, <span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb553"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb553-1"><a href="#cb553-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(my_data, <span class="st">"./data/spatial_data_formats_can_be_annoyiong.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -5773,8 +5787,8 @@ Based on the file format, <strong>{rio}</strong> will pick a suitable import/exp
 <section id="your-turn-data-import" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-309_4660f4dba185b61b382b85ef65054270">
-<div class="sourceCode cell-code" id="cb551"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb551-1"><a href="#cb551-1"></a>df_bikes <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/london-bikes-custom.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
-<span id="cb551-2"><a href="#cb551-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb554"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb554-1"><a href="#cb554-1"></a>df_bikes <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">"./data/london-bikes-custom.csv"</span>, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb554-2"><a href="#cb554-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5798,8 +5812,8 @@ $ weather_type &lt;chr&gt; "broken clouds", "clear", "broken clouds", "cloudy", 
 <section id="your-turn-data-import-1" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-310_ada0977968b530032830fb640b2e5d48">
-<div class="sourceCode cell-code" id="cb553"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb553-1"><a href="#cb553-1"></a>df_bikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
-<span id="cb553-2"><a href="#cb553-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb556"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb556-1"><a href="#cb556-1"></a>df_bikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
+<span id="cb556-2"><a href="#cb556-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5823,8 +5837,8 @@ $ weather_type &lt;chr&gt; "broken clouds", "clear", "broken clouds", "cloudy", 
 <section id="your-turn-data-import-2" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-311_96043e5cc797173a30bd1fa8417323c1">
-<div class="sourceCode cell-code" id="cb555"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb555-1"><a href="#cb555-1"></a>df_bikes <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
-<span id="cb555-2"><a href="#cb555-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb558"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb558-1"><a href="#cb558-1"></a>df_bikes <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
+<span id="cb558-2"><a href="#cb558-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5848,8 +5862,8 @@ $ weather_type &lt;chr&gt; "broken clouds", "clear", "broken clouds", "cloudy", 
 <section id="your-turn-data-import-3" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-312_13490b9b9bd7b6c51e0753689d0dfe94">
-<div class="sourceCode cell-code" id="cb557"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb557-1"><a href="#cb557-1"></a>df_bikes <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/london-bikes-custom.csv"</span>, <span class="at">setclass =</span> <span class="st">"tbl_df"</span>)</span>
-<span id="cb557-2"><a href="#cb557-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb560"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb560-1"><a href="#cb560-1"></a>df_bikes <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(<span class="st">"./data/london-bikes-custom.csv"</span>, <span class="at">setclass =</span> <span class="st">"tbl_df"</span>)</span>
+<span id="cb560-2"><a href="#cb560-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5873,8 +5887,8 @@ $ weather_type &lt;chr&gt; "broken clouds", "clear", "broken clouds", "cloudy", 
 <section id="your-turn-data-import-4" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-313_7ff7b36deee82d3edb843d4d6e02088e">
-<div class="sourceCode cell-code" id="cb559"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb559-1"><a href="#cb559-1"></a>df_bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
-<span id="cb559-2"><a href="#cb559-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb562"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb562-1"><a href="#cb562-1"></a>df_bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>)</span>
+<span id="cb562-2"><a href="#cb562-2"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5898,9 +5912,9 @@ $ weather_type &lt;chr&gt; "broken clouds", "clear", "broken clouds", "cloudy", 
 <section id="your-turn-data-import-5" class="slide level2">
 <h2>Your Turn: Data Import</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-314_6c9aabd7c4f121e3f3f3e2bf51ba9a63">
-<div class="sourceCode cell-code" id="cb561"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb561-1"><a href="#cb561-1"></a>df_bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>,</span>
-<span id="cb561-2"><a href="#cb561-2"></a>                            <span class="at">col_types =</span> <span class="st">"Dcficilllddddf"</span>)</span>
-<span id="cb561-3"><a href="#cb561-3"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb564"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb564-1"><a href="#cb564-1"></a>df_bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/london-bikes-custom.csv"</span>,</span>
+<span id="cb564-2"><a href="#cb564-2"></a>                            <span class="at">col_types =</span> <span class="st">"Dcficilllddddf"</span>)</span>
+<span id="cb564-3"><a href="#cb564-3"></a>tibble<span class="sc">::</span><span class="fu">glimpse</span>(df_bikes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,454
 Columns: 14
@@ -5924,16 +5938,16 @@ $ weather_type &lt;fct&gt; broken clouds, clear, broken clouds, cloudy, broken c
 <section id="your-turn-data-export" class="slide level2">
 <h2>Your Turn: Data Export</h2>
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-315_cb5f340d1348131bf5fb6e2634d357a6">
-<div class="sourceCode cell-code" id="cb563"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb563-1"><a href="#cb563-1"></a><span class="fu">saveRDS</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb566"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb566-1"><a href="#cb566-1"></a><span class="fu">saveRDS</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-316_faefb3b427eb6a534d187a812c44690a">
-<div class="sourceCode cell-code" id="cb564"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb564-1"><a href="#cb564-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb567"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb567-1"><a href="#cb567-1"></a>readr<span class="sc">::</span><span class="fu">write_rds</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell" data-hash="1_introduction_cache/revealjs/unnamed-chunk-317_ccea88105766f6f41a051d38231b79dd">
-<div class="sourceCode cell-code" id="cb565"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb565-1"><a href="#cb565-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb568"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb568-1"><a href="#cb568-1"></a>rio<span class="sc">::</span><span class="fu">export</span>(df_bikes, <span class="at">file =</span> <span class="st">"./data/london-bikes-custom.Rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section>
