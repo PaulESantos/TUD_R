@@ -962,9 +962,9 @@ rep(1:3, each = 3)
 
 ## -----------------------------------------------------------------------------
 name <- c("Brian", "Jason", "Tyler", "Sam")
-age <- seq(23, 29, by = 2)  ## or: c(23, 24, 25, 26)
-sex <- rep("male", length(name))
-id <- 1:length(name)
+age <- seq(23, 29, by = 2)  ## or `c(23, 25, 27, 29)`
+sex <- rep("male", length(name))  ## or `c("male", "male", "male", "male")`
+id <- 1:length(name)  ## or `c(1, 2, 3, 4)` or `1:4`
 
 
 ## -----------------------------------------------------------------------------
