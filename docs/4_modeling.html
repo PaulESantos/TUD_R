@@ -1897,6 +1897,28 @@ Residuals 52 276273  5313.0               </code></pre>
 <h2>Diagnostic Plot 2: Normal Q-Q</h2>
 
 <img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-2-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
+<section id="test-for-normality" class="slide level2">
+<h2>Test for Normality</h2>
+<p>A formal statistical test to check the assumption of normally distributed residuals is the <strong>Shapiro-Wilk test</strong>.</p>
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-85_d20b494c9ce18f5dddc8be766d328fba">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lm_birds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(lm_birds)
+W = 0.64158, p-value = 3.172e-10</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="small">
+<p>Null hypothesis: values follow a normal distribution</p>
+</div>
+</div>
+<div class="fragment">
+<p><span class="simple-highlight-grn">→ We accept H<sub>a</sub>. The residuals are not distributed normally.</span></p>
+</div>
+</section>
 <section id="diagnostic-plot-3-scale-location" class="slide level2">
 <h2>Diagnostic Plot 3: Scale Location</h2>
 <p><br></p>
@@ -1922,28 +1944,6 @@ Residuals 52 276273  5313.0               </code></pre>
 </ul></li>
 </ul>
 </div>
-</div>
-</section>
-<section id="test-for-normality" class="slide level2">
-<h2>Test for Normality</h2>
-<p>A formal statistical test to check the assumption of normally distributed residuals is the <strong>Shapiro-Wilk test</strong>.</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-85_d20b494c9ce18f5dddc8be766d328fba">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lm_birds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Shapiro-Wilk normality test
-
-data:  residuals(lm_birds)
-W = 0.64158, p-value = 3.172e-10</code></pre>
-</div>
-</div>
-<div class="fragment">
-<div class="small">
-<p>Null hypothesis: values follow a normal distribution</p>
-</div>
-</div>
-<div class="fragment">
-<p><span class="simple-highlight-grn">→ We accept H<sub>a</sub>. The residuals are not distributed normally.</span></p>
 </div>
 </section>
 <section id="diagnostic-plot-3-scale-location-1" class="slide level2">
@@ -2169,33 +2169,14 @@ BP = 0.096381, df = 1, p-value = 0.7562</code></pre>
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a>lm_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(max_abund_log <span class="sc">~</span> mass_log, <span class="at">data =</span> birds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="4_modeling_cache/revealjs/plot-lm-birds-log_8387797b4037cfa4b0251725cd3a3266">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-106_9765d0876d61c0cdd87981a3c220cf22">
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="fu">plot</span>(lm_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center" data-hash="4_modeling_cache/revealjs/plot-lm-log_d33b0cde5dfc5a57eac8ea9a5007dde3">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-log-1.png" width="3200"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-log-2.png" width="3200"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-log-3.png" width="3200"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-log-4.png" width="3200"></p>
+<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-log-1.png" width="3200"></p>
 </figure>
 </div>
 </div>
@@ -2348,38 +2329,11 @@ mass_log    -0.2361498  0.1169836 -2.018658 4.869342e-02</code></pre>
 </section>
 <section id="verify-assumptions-for-lm-1" class="slide level2">
 <h2>Verify Assumptions for LM</h2>
-<div class="cell" data-layout-align="center" data-hash="4_modeling_cache/revealjs/plot-lm-birds-terr_b18bccec87147cb1fbfa2a63afb2309c">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-118_a6c102e3484c5d40344b3b7dace965fc">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="fu">plot</span>(lm_terr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-terr-1.png" width="3200"></p>
-</figure>
 </div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-terr-2.png" width="3200"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-terr-3.png" width="3200"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-terr-4.png" width="3200"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="4_modeling_files/figure-revealjs/plot-lm-terr-1.png" width="3200" class="r-stretch quarto-figure-center"></section>
 <section id="visualize-the-residuals-1" class="slide level2">
 <h2>Visualize the Residuals</h2>
 <div class="cell" data-layout-align="center" data-hash="4_modeling_cache/revealjs/ggplot-birds-hist-residuals-terr_76f7021cf97a4b1a448f7799b7a8e54b">
@@ -2389,7 +2343,7 @@ mass_log    -0.2361498  0.1169836 -2.018658 4.869342e-02</code></pre>
 <img data-src="4_modeling_files/figure-revealjs/ggplot-birds-hist-residuals-terr-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
 <section id="test-for-normality-2" class="slide level2">
 <h2>Test for Normality</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-120_973bf05082be907e41078fb47a3c5490">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-121_bb543f4828477c7573017917e42fccd5">
 <div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lm_terr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2413,7 +2367,7 @@ W = 0.94367, p-value = 0.05041</code></pre>
 <p>For different <b style="font-weight:800;color:#28A87D;">terrestial bird species</b>, the <b>average mass of an individual affects the maximum abundance of the species</b>, due to ecological constraints.</p>
 </blockquote>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-121_a0f5aba517621c0f57eee6eefc0aefd1">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-122_19c524a59ced8c5481ece7c9028af2c1">
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">summary</span>(lm_terr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2443,7 +2397,7 @@ F-statistic: 13.56 on 1 and 37 DF,  p-value: 0.000733</code></pre>
 <blockquote>
 <p>For different <b style="font-weight:800;color:#28A87D;">terrestial bird species</b>, the <b>average mass of an individual affects the maximum abundance of the species</b>, due to ecological constraints.</p>
 </blockquote>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-122_0d29a1cba9aa2b6521fa0d24d353bb2f">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-123_fabcd35053dcb8fdf05e153033aa889a">
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="fu">anova</span>(lm_terr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -2462,7 +2416,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <blockquote>
 <p>For different <b style="font-weight:800;color:#28A87D;">terrestial bird species</b>, the <b>average mass of an individual affects the maximum abundance of the species</b>, due to ecological constraints.</p>
 </blockquote>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-123_0c94005587091dc8bf648adfe81006eb">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-124_922a9561aae40f3a9e1cd450a5cb0d36">
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="fu">summary</span>(lm_terr)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
@@ -2474,7 +2428,7 @@ mass_log    -0.6428946  0.1745703 -3.682726 7.329516e-04</code></pre>
 <p><code> log10(abundance) = 2.27 - 0.643(log10(mass)) </code></p>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-124_22ded5c0ea7458d5bfb029a3a4038f35">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-125_dfe12d0cabf9cfd7fc6e4349d838803f">
 <div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a><span class="fu">summary</span>(lm_terr)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2484544</code></pre>
@@ -2493,27 +2447,21 @@ mass_log    -0.6428946  0.1745703 -3.682726 7.329516e-04</code></pre>
 <section id="including-more-predictor-variables-1" class="slide level2">
 <h2>Including More Predictor Variables</h2>
 <p>We can also use more than a single predictor. Let’s explore the relationship but including the information on passerine families:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-126_412c6429b45e30192d52237a09bce3ca">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-127_f443db40628b7d695c594cade8eb6181">
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a>lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> passerine, <span class="at">data =</span> birds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-127_cb56f095f79e725bc7a83c836ba4f8a9">
+</section>
+<section id="including-more-predictor-variables-2" class="slide level2">
+<h2>Including More Predictor Variables</h2>
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-128_fcf1e67625378c40480e6e1b5006e2a3">
 <div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1"></a><span class="fu">plot</span>(lm_mult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-layout-align="center" data-hash="4_modeling_cache/revealjs/plot-lm-birds-mult_b60c159c4e4ac064082dd489a78c24aa">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-mult-1.png" width="3200"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+
+<img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-mult-1.png" width="3200" class="r-stretch quarto-figure-center"><p>:::</p>
 </section>
 <section id="model-interpretation-6" class="slide level2">
 <h2>Model Interpretation</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-129_67e751027f2d0b6d279920cb824c7bdf">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-130_658c3187e2b1730f51e8f4168ed5e5fd">
 <div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="fu">summary</span>(lm_mult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2547,15 +2495,15 @@ F-statistic: 4.994 on 2 and 51 DF,  p-value: 0.01045</code></pre>
 <section id="back-to-t-tests" class="slide level2">
 <h2>Back to t-Tests</h2>
 <p>Note that a t-test is equal to a <span class="simple-highlight-ylw">linear model for a factor with two levels</span>:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-130_22bbfb4ff94fb9cf81be723e6b23f992">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-131_a77cb5f1db64c2ed8a6376768b1781dd">
 <div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a>lm_ttest <span class="ot">&lt;-</span> <span class="fu">lm</span>(mass_log <span class="sc">~</span> aquatic, <span class="at">data =</span> birds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-131_79e7298b054409eebba22cf887215611">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-132_a79c2127801b9414eea1bb42bd5c2613">
 <div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1"></a>ttest_lm <span class="ot">&lt;-</span> <span class="fu">t.test</span>(mass_log <span class="sc">~</span> aquatic, <span class="at">data =</span> birds, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>When variances are equal we can see that <code>t<sup>2</sup> == F</code>:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-132_7562a081b5ff8d26bc58f7f773190096">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-133_53a4a2f7f422c2a6c484824eea2b081c">
 <div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a><span class="fu">anova</span>(lm_ttest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -2568,7 +2516,7 @@ Residuals 52 16.375  0.3149
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-133_855ce8a4a9bde8872380a4def57f8b34">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-134_3ba307d7fd8465fcc41fc9f5bcb7ccaa">
 <div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a>ttest_lm<span class="sc">$</span>statistic<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      t 
@@ -2600,7 +2548,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="analysis-of-variance-anova-1" class="slide level2">
 <h2>Analysis of Variance (ANOVA)</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-134_bc5ccb9e439399cd225b496c64369242">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-135_1381321ce8167b725f4bcb36f2c3b007">
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a>aov_diet <span class="ot">&lt;-</span> <span class="fu">aov</span>(max_abund_log <span class="sc">~</span> diet, <span class="at">data =</span> birds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
@@ -2610,7 +2558,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="verify-assumptions-for-anova" class="slide level2">
 <h2>Verify Assumptions for ANOVA</h2>
 <p>An ANOVA must meet the same four residual assumptions as linear models:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-135_45ad9f290cbfd2bbad7ffe369a6278db">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-136_eb7b38c35f8e5cc03318d7d9fb45fac1">
 <div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1"></a><span class="fu">plot</span>(aov_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
@@ -2618,7 +2566,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <section id="verify-assumptions-for-anova-1" class="slide level2">
 <h2>Verify Assumptions for ANOVA</h2>
 <p>Test for normality with the <strong>Shapiro-Wilk test</strong>:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-137_f4fc1bcc52ce14e237d1fdce7b3189f5">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-138_74253ec410e742f3d10cc409404dc81a">
 <div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a><span class="fu">shapiro.test</span>(<span class="fu">resid</span>(aov_diet))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2640,7 +2588,7 @@ W = 0.97995, p-value = 0.4982</code></pre>
 <section id="verify-assumptions-for-anova-2" class="slide level2">
 <h2>Verify Assumptions for ANOVA</h2>
 <p>Assess the homogeneity of residuals variance with a <strong>Bartlett test</strong>:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-138_e5b310e08c05c56dd35ca82c61d0abcd">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-139_8f43fddb9f23a8d890aa75010553ba59">
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a><span class="fu">bartlett.test</span>(max_abund_log <span class="sc">~</span> diet, <span class="at">data =</span> birds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -2661,7 +2609,7 @@ Bartlett's K-squared = 7.4728, df = 4, p-value = 0.1129</code></pre>
 </section>
 <section id="model-output" class="slide level2">
 <h2>Model Output</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-139_27aab3f0ab964585c8da275a723571dd">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-140_28defe946ab36bddd1250a33c556fb21">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="fu">summary</span>(aov_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)  
@@ -2674,7 +2622,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p><br></p>
 <div class="fragment">
 <p>… which is the same as the outcome of the simple LM:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-140_390f0e17f90768bafdc9c3cc63fabb5b">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-141_e8ee5f9bcacf32d3a022cd165ea4fd3f">
 <div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(max_abund_log <span class="sc">~</span> diet, <span class="at">data =</span> birds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -2707,7 +2655,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section>
 <section id="tukey-post-hoc-test" class="slide level2">
 <h2>Tukey Post-Hoc Test</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-141_bb6ddd3da647b2a80a5c0fbcae2489f1">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-142_46346cc7b3a4a6b26debc014bc830269">
 <div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1"></a><span class="fu">TukeyHSD</span>(aov_diet, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
@@ -2734,7 +2682,7 @@ PlantInsect-Plant      0.1812999 -1.23473664 1.597336 0.9961844</code></pre>
 <div class="small">
 <p>The only significant difference in abundance occurs between the diet types <code>PlantInsect</code> and <code>Vertebrate</code>.</p>
 </div>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-142_3046736b3d041a306459b0626c94f70e">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-143_91cead2ac7656593b0771921dc53062c">
 <div class="cell-output cell-output-stdout">
 <pre><code>                            diff        lwr      upr      p adj
 PlantInsect-Vertebrate 0.7293041 0.02128588 1.437322 0.04054849</code></pre>
@@ -2775,7 +2723,7 @@ PlantInsect-Vertebrate 0.7293041 0.02128588 1.437322 0.04054849</code></pre>
 <img data-src="4_modeling_files/figure-revealjs/ggplot-birds-lm-diet-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
 <section id="prepare-data" class="slide level2">
 <h2>Prepare Data</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-144_45ae06c19083d734fbd5a17093b34fc4">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-145_adca7715130e4d297f4d997a0911e223">
 <div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a>birds_diet <span class="ot">&lt;-</span> </span>
 <span id="cb179-2"><a href="#cb179-2"></a>  birds <span class="sc">%&gt;%</span> </span>
 <span id="cb179-3"><a href="#cb179-3"></a>  <span class="fu">add_count</span>(diet) <span class="sc">%&gt;%</span> </span>
@@ -2813,7 +2761,7 @@ PlantInsect-Vertebrate 0.7293041 0.02128588 1.437322 0.04054849</code></pre>
 </section>
 <section id="linear-mixed-model-random-intercepts" class="slide level2">
 <h2>Linear Mixed Model: Random Intercepts</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-146_af685e6eed7fc7ec9c503ca33f1ab0ce">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-147_84fa73b21d0723bebdcf6080f053b4cf">
 <div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb181-2"><a href="#cb181-2"></a>lm_mixed1 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2822,7 +2770,7 @@ PlantInsect-Vertebrate 0.7293041 0.02128588 1.437322 0.04054849</code></pre>
 </div>
 <p>The random effect is defined as <strong>random intercept for each diet type</strong>.<br> The connotation in R is <code>(1 | diet)</code>. <br></p>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-147_b0eed548ead98ee244bb44a206c2df39">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-148_b408f33419ecacc0ab3815baf22c7129">
 <div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1"></a><span class="fu">coef</span>(lm_mixed1)<span class="sc">$</span>diet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            (Intercept)   mass_log
@@ -2835,7 +2783,7 @@ Vertebrate     1.438901 -0.1723018</code></pre>
 </section>
 <section id="linear-mixed-model-random-slopes" class="slide level2">
 <h2>Linear Mixed Model: Random Slopes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-148_419b58542315bb71f42fd5a1466a347e">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-149_25a231d19b6752040b0a6df7332cdf29">
 <div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb184-2"><a href="#cb184-2"></a>lm_mixed2 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">0</span> <span class="sc">+</span> mass_log <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2844,7 +2792,7 @@ Vertebrate     1.438901 -0.1723018</code></pre>
 </div>
 <p>The random effect is defined as <strong>random slopes for each diet type</strong>.<br> The connotation in R is <code>(0 + mass_log | diet)</code>. <br></p>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-149_37eaf022aa7e9fc631a7facf9650c548">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-150_2c5898921ab86ee30fc615b5a3144132">
 <div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1"></a><span class="fu">coef</span>(lm_mixed2)<span class="sc">$</span>diet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            (Intercept)   mass_log
@@ -2857,7 +2805,7 @@ Vertebrate      1.61115 -0.2183231</code></pre>
 </section>
 <section id="linear-mixed-model-intercepts-slopes" class="slide level2">
 <h2>Linear Mixed Model: Intercepts + Slopes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-150_2091d041ea4a3d8ce3d61d6659c81c14">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-151_f9efb07d98b29fc19b0c09e6735a2dd2">
 <div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb187-2"><a href="#cb187-2"></a>lm_mixed3 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> mass_log <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2866,7 +2814,7 @@ Vertebrate      1.61115 -0.2183231</code></pre>
 </div>
 <p>The random effect is defined as <strong>random intercepts and slopes for each diet type</strong>.<br> The connotation in R is <code>(1 + mass_log | diet)</code>. <br></p>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-151_22fb1132227a066941377faf9c363e75">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-152_8e6829349df4861c3ccb369186d26060">
 <div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1"></a><span class="fu">coef</span>(lm_mixed3)<span class="sc">$</span>diet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            (Intercept)   mass_log
@@ -2882,7 +2830,7 @@ Vertebrate   -0.8065533  0.5702934</code></pre>
 </section>
 <section id="linear-mixed-model-intercepts-slopes-1" class="slide level2">
 <h2>Linear Mixed Model: Intercepts + Slopes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-152_fd7bd365d759ff409bc8837065690c50">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-153_bf7019d2677ec0366330103dbeafdbdb">
 <div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb190-2"><a href="#cb190-2"></a>lm_mixed3 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> mass_log <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2893,11 +2841,11 @@ Vertebrate   -0.8065533  0.5702934</code></pre>
 <img data-src="4_modeling_files/figure-revealjs/plot-lm-birds-mixed3-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
 <section id="linear-mixed-model-intercepts-slopes-2" class="slide level2">
 <h2>Linear Mixed Model: Intercepts + Slopes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-154_dae9ee8ce23bf60e3c41a13ca8368a0f">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-155_2d69fa8a8082770124888fb6841b1ba4">
 <div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb192-2"><a href="#cb192-2"></a>lm_mixed3 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> mass_log <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-155_21e20cb5128c44f7288a08a39a30bdd5">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-156_1706861495c9bf55db6348e4f5e68130">
 <div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a><span class="fu">summary</span>(lm_mixed3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML ['lmerMod']
@@ -2932,11 +2880,11 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 </section>
 <section id="linear-mixed-model-intercepts-slopes-3" class="slide level2">
 <h2>Linear Mixed Model: Intercepts + Slopes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-156_caa03385c2a2ea716bf75d51230f7aee">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-157_37edb09a8c64c022edea59b0e742588c">
 <div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="co"># install.packages("lme4")</span></span>
 <span id="cb195-2"><a href="#cb195-2"></a>lm_mixed3 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(max_abund_log <span class="sc">~</span> mass_log <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> mass_log <span class="sc">|</span> diet), <span class="at">data =</span> birds_diet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-157_e889eb81208afe483ba1951dfbcf5d97">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-158_0e07ad9547c6b43ed26887a7e6c836eb">
 <div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1"></a><span class="fu">anova</span>(lm_mixed3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -2964,7 +2912,7 @@ mass_log    1 0.00072047 0.00072047  0.0017</code></pre>
 <h2>Model Comparison</h2>
 <p>To compare the fits of two models, you can use the <code>anova()</code> function with the regression objects as two separate arguments.</p>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-158_b94092d842139ffc829fcfb5a331e4a3">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-159_4c292cbc61982bf11cf43f81942996ec">
 <div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1"></a><span class="fu">anova</span>(lm_log, lm_mult)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -2992,7 +2940,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h2>Model Comparison</h2>
 <p>To compare the fits of two models, you can use the <code>anova()</code> function with the regression objects as two separate arguments.</p>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-159_1339828efe7396d8c74b6fb00a18d87d">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-160_584e97293f2346347740b2f6e29b82e5">
 <div class="sourceCode cell-code" id="cb200"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1"></a><span class="fu">anova</span>(lm_mixed1, lm_mixed3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data: birds_diet
@@ -3031,11 +2979,11 @@ lm_mixed3    6 116.71 128.18 -52.355   104.71 0.3665  2     0.8326</code></pre>
 </section>
 <section id="data" class="slide level2">
 <h2>🐉 Data</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-160_5731b445d28bcbefe8e3b57639ba2bb1">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-161_62ae863860a399a4c933a274abddd8b5">
 <div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1"></a>dragons <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./data/dragons.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-161_99baa332a46acfb80b8c7f751ceecf38">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-162_cb83ee29bf6121d2b2bd90c38f87e3e1">
 <div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1"></a><span class="fu">glimpse</span>(dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 480
@@ -3095,11 +3043,11 @@ $ site           &lt;chr&gt; "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "
 <img data-src="4_modeling_files/figure-revealjs/ggplot-dragons-scatter-score-length-lm-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
 <section id="run-linear-model" class="slide level2">
 <h2>🐉 Run Linear Model</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-167_861669a8fb02b4d85f6b9bd6fe0ab99d">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-168_d3f570815c2da3ca6e9194cfcb799d06">
 <div class="sourceCode cell-code" id="cb210"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1"></a>lm_dragons <span class="ot">&lt;-</span> <span class="fu">lm</span>(test_score <span class="sc">~</span> body_length, <span class="at">data =</span> dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-168_e0a5af4e25df110a9b9815e3c2f3a71e">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-169_ffcc2458ab937e7f8857a2e33eb4a4b7">
 <div class="sourceCode cell-code" id="cb211"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1"></a><span class="fu">summary</span>(lm_dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3126,14 +3074,14 @@ F-statistic: 86.25 on 1 and 478 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="verify-assumptions-for-lm-2" class="slide level2">
 <h2>🐉 Verify Assumptions for LM</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-169_f135dee2846e71bbf53e3f2b4e6b3ded">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-170_322073825160e629f4e4ecd84fb6dabf">
 <div class="sourceCode cell-code" id="cb213"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1"></a><span class="fu">plot</span>(lm_dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="4_modeling_files/figure-revealjs/plot-lm-dragons-1.png" width="3200" class="r-stretch quarto-figure-center"></section>
 <section id="test-for-normality-3" class="slide level2">
 <h2>🐉 Test for Normality</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-171_9bfbde102a7fd78af0a0f5c27bde0ee6">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-172_b906e6bdc568e9c6a90d00e16995d163">
 <div class="sourceCode cell-code" id="cb214"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb214-1"><a href="#cb214-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lm_dragons))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3163,20 +3111,20 @@ W = 0.99277, p-value = 0.02053</code></pre>
 <section id="run-linear-mixed-model" class="slide level2">
 <h2>🐉 Run Linear Mixed Model</h2>
 <p>We run a model with random intercept only:</p>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-173_0a6a51b7a44697d142dbe3ca597de224">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-174_e040a227c80431cbdb113103157a76cb">
 <div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>lmm_dragons1 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(test_score <span class="sc">~</span> body_length <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> mountain_range), <span class="at">data =</span> dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="verify-assumptions-for-lmm" class="slide level2">
 <h2>🐉 Verify Assumptions for LMM</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-174_452540e4a4f2a57b932863a88cf4c242">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-175_1588c3dbdd3dca8a3c8a1bc6489c1390">
 <div class="sourceCode cell-code" id="cb218"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1"></a><span class="fu">plot</span>(lmm_dragons1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="4_modeling_files/figure-revealjs/plot-lmm1-dragons-1.png" width="3200" class="r-stretch quarto-figure-center"></section>
 <section id="test-for-normality-4" class="slide level2">
 <h2>🐉 Test for Normality</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-176_41ff5c8450c64238823d257529ca20f0">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-177_1a798115df546240db2bacdc23a215f9">
 <div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lmm_dragons1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3195,7 +3143,7 @@ W = 0.99883, p-value = 0.9899</code></pre>
 </section>
 <section id="inspect-model-outcomes" class="slide level2">
 <h2>🐉 Inspect Model Outcomes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-177_f3b8e055cba004dc079b8316395f95fe">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-178_a040d449f7fed3e5f5869c74045dab20">
 <div class="sourceCode cell-code" id="cb221"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1"></a><span class="fu">summary</span>(lmm_dragons1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML ['lmerMod']
@@ -3225,7 +3173,7 @@ body_length -0.924</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-178_53066de36b72c4fcf8019123ce3c142d">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-179_be771d679bce35de85e6e9eacbd97ea2">
 <div class="sourceCode cell-code" id="cb223"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb223-1"><a href="#cb223-1"></a><span class="fl">339.7</span> <span class="sc">/</span> (<span class="fl">339.7</span> <span class="sc">+</span> <span class="fl">223.8</span>) <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 60.28394</code></pre>
@@ -3236,7 +3184,7 @@ body_length -0.924</code></pre>
 </section>
 <section id="inspect-model-outcomes-1" class="slide level2">
 <h2>🐉 Inspect Model Outcomes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-179_c8b950395e10b297b442dc386d6f78f7">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-180_5ce1ce38fdd330cd0b7b23f6892d6795">
 <div class="sourceCode cell-code" id="cb225"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb225-1"><a href="#cb225-1"></a><span class="fu">anova</span>(lmm_dragons1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -3247,20 +3195,20 @@ body_length    1   39.8    39.8  0.1778</code></pre>
 </section>
 <section id="add-random-slope" class="slide level2">
 <h2>🐉 Add Random Slope</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-180_f5ec0f89dfbc46a55ff2941008799d40">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-181_c781d2bcb3262a744cf1f0823a1e25bc">
 <div class="sourceCode cell-code" id="cb227"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb227-1"><a href="#cb227-1"></a>lmm_dragons2 <span class="ot">&lt;-</span> lme4<span class="sc">::</span><span class="fu">lmer</span>(test_score <span class="sc">~</span> body_length <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> body_length <span class="sc">|</span> mountain_range), <span class="at">data =</span> dragons)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="verify-assumptions-for-2nd-lmm" class="slide level2">
 <h2>🐉 Verify Assumptions for 2nd LMM</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-181_5c8424c0e8f1ca65288ee52a270bd5e9">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-182_114b5fb836101f63313ebba79db59b30">
 <div class="sourceCode cell-code" id="cb228"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb228-1"><a href="#cb228-1"></a><span class="fu">plot</span>(lmm_dragons2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 <img data-src="4_modeling_files/figure-revealjs/plot-lmm2-dragons-1.png" width="3200" class="r-stretch quarto-figure-center"></section>
 <section id="test-for-normality-5" class="slide level2">
 <h2>🐉 Test for Normality</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-183_042922cadb336c3eb8a4650f5047beb4">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-184_c991e659b3351b3a149b69ef992612a6">
 <div class="sourceCode cell-code" id="cb229"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(lmm_dragons2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3281,7 +3229,7 @@ W = 0.9988, p-value = 0.9885</code></pre>
 </section>
 <section id="model-outcomes" class="slide level2">
 <h2>🐉 Model Outcomes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-184_cca2af34adb6893b33e7384573d78130">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-185_c2f9c1b49432e9f44f1e6e9754939c3b">
 <div class="sourceCode cell-code" id="cb231"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb231-1"><a href="#cb231-1"></a><span class="fu">summary</span>(lmm_dragons2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML ['lmerMod']
@@ -3316,7 +3264,7 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 </section>
 <section id="model-outcomes-1" class="slide level2">
 <h2>🐉 Model Outcomes</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-185_21674644a389db7bbb9a8a160e53e578">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-186_fc44dead55950e60085e1f45f9e5febc">
 <div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1"></a><span class="fu">anova</span>(lmm_dragons2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
@@ -3327,7 +3275,7 @@ body_length    1 0.0071647 0.0071647       0</code></pre>
 </section>
 <section id="compare-models" class="slide level2">
 <h2>🐉 Compare Models</h2>
-<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-186_60a963ec12f7f5176da7c0b70f23b3a9">
+<div class="cell" data-hash="4_modeling_cache/revealjs/unnamed-chunk-187_38d3c7c77d95c1fff83d6ed9ef1dc6ee">
 <div class="sourceCode cell-code" id="cb235"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb235-1"><a href="#cb235-1"></a><span class="fu">anova</span>(lmm_dragons1, lmm_dragons2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Data: dragons
