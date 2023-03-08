@@ -1,0 +1,149 @@
+---
+title: "Quarto Exercise"
+subtitle: "Suggested Solutions"
+author: "Cédric Scherer"
+date: "`r Sys.time()`"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
+    theme: cosmo
+knitr:
+  opts_chunk:
+    dpi: 300
+    dev: "ragg_png"
+execute:
+  warning: false
+  fig-width: 10
+  fig-height: 7
+editor: source
+---
+
+## What I've Learned This Week
+
+Massa tempor nec feugiat nisl **pretium fusce** id velit. Magna fringilla urna porttitor _rhoncus_ dolor purus non. Iaculis nunc sed augue lacus viverra vitae.  
+Vivamus at augue eget arcu. Tortor vitae purus faucibus ornare suspendisse sed nisi. Iaculis nunc sed augue lacus viverra vitae congue eu.
+
+## What I Want to Explore Further
+
+1.  Lorem ipsum dolor sit amet
+2.  consectetur adipiscing elit
+3.  sed do eiusmod tempor incididunt ut labore
+4.  et dolore magna aliqua
+
+
+## An Image of My Choice
+
+![Illustration by Allison Horst](https://raw.githubusercontent.com/mine-cetinkaya-rundel/hello-quarto/main/images/horst-quarto-penguins.png){fig-alt="A drawing of two cute penguins, an orange one hugging the quarto logo and a blue one yay'ing."}
+
+
+## A Visualization of My Choice
+
+I am creating a scatter plot with **`{ggplot2}`** with a complete theme but no changes to the `base_size` and the default size for the points. The code is not printed as I have set `#| echo: false` in the second line of the chunk.
+
+```{r}
+#| label: my-ggplot
+#| echo: false
+library(ggplot2)
+
+g <- ggplot(mpg, aes(x = displ, y = hwy, color = cty)) + 
+  geom_point() +
+  scale_color_viridis_c(option = "mako", direction = -1, end = .9) +
+  labs(x = "Displacement", y = "Highway gallons", color = "City gallons:") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+
+g
+```
+
+The figure width and height is as set by default or in the YAML header.
+
+### ... with an adjusted aspect ratio
+
+By setting `#| fig-width:` and `#| fig-height:` in the beginning of the chunk we can adjust the aspect ratio, and thus the size of theme elements and the points:
+
+```{r}
+#| label: my-ggplot-width-height
+#| echo: false
+#| fig-width: 6
+#| fig-height: 4
+g
+```
+
+### ... as interactive versions
+
+Using the [**`{ggiraph}`**](https://davidgohel.github.io/ggiraph/index.html) R package that extends **`{ggplot2}`** with `geom_*_interactive()` variants:
+
+```{r}
+#| label: my-ggiraph
+#| echo: false
+#| fig-width: 6
+#| fig-height: 4
+# install.packages("ggiraph")
+gg <- g + 
+  ggiraph::geom_point_interactive(
+    aes(tooltip = manufacturer, data_id = manufacturer), size = 2
+  )
+
+ggiraph::girafe(ggobj = gg)
+```
+
+Using [**`{plotly}`**](https://plotly.com/ggplot2/), a popular R package to render your ggplot with the [JavaScript library plotly](https://plotly.com/):
+
+```{r}
+#| label: my-ggplotly
+#| echo: false
+# install.packages("plotly")
+plotly::ggplotly(g)
+```
+
+## Exploration of Tables in Quarto
+
+The **`{rmarkdown}`** package features as `paged_table()` function to create a simple table incl. navigation:
+
+```{r}
+#| label: rmarkdown
+#| echo: false
+# install.packages("rmarkdown")
+rmarkdown::paged_table(mpg)
+```
+
+<br>
+
+For shorter, nicely formatted tables, one can use `knitr::kable()`:
+
+```{r}
+#| label: kable
+#| echo: false
+## smaller dataset to print in the following tables
+library(dplyr)
+mpg2 <- mpg %>% select(c(1:2, 11, 5:6, 8, 3)) %>% slice_head(n = 1, by = manufacturer)
+
+# install.packages("kable")
+knitr::kable(mpg2)
+```
+
+... or the [**`{flextable}`**](https://ardata-fr.github.io/flextable-book/) package:
+
+```{r}
+#| label: flextable
+#| tbl-cap: A flextable example
+#| echo: false
+# install.packages("flextable")
+flextable::flextable(mpg2) %>% flextable::autofit()
+```
+
+<br>
+
+... or the [**`{gt}`**](https://gt.rstudio.com/) R package, if you like in combination with its extension package [**`{gtExtras}`**](https://jthomasmock.github.io/gtExtras/):
+
+```{r}
+#| label: gt-extras
+#| echo: false
+# install.packages("g")
+# install.packages("gtExtras")
+gt::gt(mpg2) %>% 
+  gtExtras::gt_color_rows(cty) %>%
+  gtExtras::gt_plt_bar_pct(displ, fill = "#303030") %>% 
+  gt::cols_width(model ~ px(120))  ## to avoid line breaks
+```
